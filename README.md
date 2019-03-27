@@ -3,8 +3,16 @@ A MagicMirror² Module for performing Text-to-Speech via speech-dispatcher
 
 ## Installation
 
+Install `speech-dispatcher` and python bindings:
+
 ```sh
 $ sudo apt-get install speech-dispatcher python3-speechd
+```
+
+Install output plug-ins for `speech-dispatcher`, e.g.:
+
+```sh
+$ sudo apt-get install speech-dispatcher-audio-plugins speech-dispatcher-espeak-ng libttspico-utils
 ```
 
 Use `spd-confg -u` to configure `speech-dispatcher` to your liking.  At a minimum you will probably have to configure your audio device, e.g.:
@@ -50,4 +58,4 @@ Example configuration for use with `MMM-PageReader`:
 ```
 
 ## Notifications
-Upon reception of a `SPEECH_DISPATCHER_SAY` notification, `MMM-Speech-Dispatcher` will send the payload text to `speech-dispatcher`.  If the `notification` option is specified in the configuration then `MMM-Speech-Dispatcher` will send an outgoing notification of that type when speaking is complete (default is `SPEECH_DISPATCHER_SAID`).
+Upon reception of a `SPEECH_DISPATCHER_SAY` notification, `MMM-Speech-Dispatcher` will send the payload text to `speech-dispatcher`.  If the `notification` option has been specified in the configuration then `MMM-Speech-Dispatcher` will send an outgoing notification of that type when speaking is complete (default value is `SPEECH_DISPATCHER_SAID`).
