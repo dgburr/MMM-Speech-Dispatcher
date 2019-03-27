@@ -13,7 +13,7 @@ Use `spd-confg -u` to configure `speech-dispatcher` to your liking.  At a minimu
 AudioOutputMethod   libao
 ```
 
-Use the `spd-say` utility to test that `speech-dispatcher` is configured:
+Use the `spd-say` utility to test that `speech-dispatcher` is configured, e.g.:
 
 ```sh
 $ spd-say "Hello World!"
@@ -48,3 +48,6 @@ Example configuration for use with `MMM-PageReader`:
     }
 }
 ```
+
+## Notifications
+Upon reception of a `SPEECH_DISPATCHER_SAY` notification, `MMM-Speech-Dispatcher` will send the payload text to `speech-dispatcher`.  If the `notification` option is specified in the configuration then `MMM-Speech-Dispatcher` will send an outgoing notification of that type when speaking is complete (default is `SPEECH_DISPATCHER_SAID`).
