@@ -22,6 +22,7 @@ Module.register('MMM-Speech-Dispatcher', {
     notificationReceived(notification, payload) {
         if(notification === 'SPEECH_DISPATCHER_SAY') {
             var text = payload.replace(/\s+/gm, ' ') // strip newlines
+            text = text.replace('&', " and ")
             this.sendSocketNotification('TTS', text)
         }
     },
