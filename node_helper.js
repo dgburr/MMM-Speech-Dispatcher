@@ -28,15 +28,16 @@ module.exports = NodeHelper.create({
     startSpeechDispatcher() {
         var self = this;
 
-        var params = ['./modules/MMM-Speech-Dispatcher/ssip_client.py']
+        var script = './modules/MMM-Speech-Dispatcher/ssip_client.py'
+        var params = []
         if(this.config.voice) params.push("--voice=" + this.config.voice)
         if(this.config.rate) params.push("--rate=" + this.config.rate)
         if(this.config.language) params.push("--language=" + this.config.language)
         if(this.config.module) params.push("--module=" + this.config.module)
 
-        console.log("Starting speech-dispatcher: " + params)
+        console.log("Starting speech-dispatcher: " + script + " " + params)
 
-        this.speakProcess = spawn('python3', params, { detached: false })
+        this.speakProcess = spawn(script, params, { detached: false })
         this.speakProcess.stdout.on('data', function (data) {
             var message = data.toString()
             if(message.startsWith('FINISHED_UTTERANCE')) {

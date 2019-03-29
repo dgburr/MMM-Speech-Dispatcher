@@ -3,6 +3,10 @@
 # Created:     27/03/2019 by Daniel Burr <dburr@dburr.net>
 # Description: Python client for communicating with speech-dispatcher
 # License:     GNU Public License, version 3
+#
+# Uses the speechd python module to communicate with speech-dispatcher
+# via SSIP (Speech Synthesis Interface Protocol), see
+# https://freebsoft.org/doc/speechd/ssip.html
 
 import getopt, sys, signal
 from speechd import SSIPClient, CallbackType
